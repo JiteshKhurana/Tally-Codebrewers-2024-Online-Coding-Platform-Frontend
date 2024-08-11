@@ -15,6 +15,7 @@ import ProblemsReview from "./components/ProblemsReview.tsx";
 import ReviewProblems from "./components/ReviewProblems.tsx";
 import Superadmin from "./components/Superadmin.tsx";
 import ReviewProblemPage from "./components/ReviewProblemPage.tsx";
+import CreateContest from "./components/contest/CreateContest.tsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/codingbattleground",
         element: <Codingbattleground />,
+      },
+      {
+        path: "/codingbattleground/createcontest",
+        element: <CreateContest />,
       },
       {
         path: "*",
