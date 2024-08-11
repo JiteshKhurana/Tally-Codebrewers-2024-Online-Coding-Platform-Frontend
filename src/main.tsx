@@ -9,6 +9,7 @@ import Codingbattleground from "./components/Codingbattleground.tsx";
 import HomePage from "./components/Homepage.tsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./components/Profile.tsx";
+import ProblemDescription from "./components/ProblemDescription.tsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/codingarena",
         element: <Codingarena />,
+      },
+      {
+        path: "/codingarena/problems/:pid",
+        element: <ProblemDescription />,
       },
       {
         path: "/codingbattleground",
