@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "./ui/button";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import { toast } from "sonner";
 
 const ReviewProblemPage = () => {
   const { pid } = useParams();
   const [problem, setProblem] = useState();
   const cookies = new Cookies(null, { path: "/" });
   const token = cookies.get("token");
-
+  const navigate = useNavigate();
   const fetchProblem = async () => {
     const response = await axios.get(
       `https://worldwide-coders-production.up.railway.app/problems/get?id=` +
@@ -19,7 +20,7 @@ const ReviewProblemPage = () => {
     setProblem(data);
   };
   const approveProblem = async () => {
-    const response = await axios.post(
+    await axios.post(
       `https://worldwide-coders-production.up.railway.app/problems/update/` +
         pid,
       { visibility: true },
@@ -27,14 +28,15 @@ const ReviewProblemPage = () => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    console.log(response);
+    toast("Approved Successfully");
+    navigate("/superadmin/reviewproblems");
   };
 
   useEffect(() => {
     fetchProblem();
   }, []);
   return (
-    <div>
+    <div className="flex flex-col justify-center">
       <div className="border border-gray-600">
         {problem && (
           <div className="col-span-8 space-y-2">

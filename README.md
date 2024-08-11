@@ -2,16 +2,22 @@
 
 ## TechStack
 
+### Frontend
+
 - TypeScript
 - React.js - Frontend
 - Tailwind CSS - UI
 - Shadcn - UI
+- Monaco-editor - Code Editor
 - React Router DOM - Routing
 - React Hook Form - Forms
 - Zod - Form Validation
 - Vite - Bundler
 - Axios - API calling
 - Piston API - Execution of code
+
+### Backend
+
 - Golang - Backend
 - Mux Router - Routing
 - MongoDB - Database
@@ -23,7 +29,6 @@
 - [x] A place where users can play with code.
 - [x] Users can code in a code editor and execute it with custom inputs.
 - [x] Users can see errors and output.
-- [ ] Users can see metrics like execution time & memory usage.
 
 ## Coding Arena
 
@@ -34,15 +39,15 @@
 
 ## Coding Battleground
 
-- [ ] A place where users can compete in ongoing contests hosted on the platform to
+- [x] A place where users can compete in ongoing contests hosted on the platform to
       showcase their skills.
-- [ ] Users can see real-time leaderboards.
-- [ ] Any user can conduct their own contest.
+- [x] Any user can conduct their own contest.
 
 ## References
 
+- https://go.dev/doc/ - Backend
+- https://www.mongodb.com/docs/ - Database
+- https://react.dev/ - Frontend
+- https://www.npmjs.com/package/@monaco-editor/react - CodeEditor
 - https://piston.readthedocs.io/en/latest/api-v2/ - For Execution of code
 - https://react-hook-form.com/get-started - Forms
-- https://go.dev/doc/ - Backend
-- https://react.dev/ - Frontend
-- https://www.mongodb.com/docs/ - Database
