@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
 import CardShimmer from "./CardShimmer";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import { Button } from "./ui/button";
+import { useNavigate } from "react-router-dom";
 
-const ProblemsReview = () => {
+const ReviewProblems = () => {
+  const navigate = useNavigate();
   const [problems, setProblems] = useState<null | any[]>(null);
   const cookies = new Cookies(null, { path: "/" });
   const token = cookies.get("token");
-
   const fetchProblems = async () => {
     const response = await axios.get(
       "https://worldwide-coders-production.up.railway.app/problems/getnotvisible",
@@ -19,6 +27,7 @@ const ProblemsReview = () => {
     const data = response.data;
     setProblems(data);
   };
+
   useEffect(() => {
     fetchProblems();
   }, []);
@@ -50,6 +59,15 @@ const ProblemsReview = () => {
                     </p>
                   </div>
                 </CardContent>
+                <CardFooter>
+                  <Button
+                    onClick={() => navigate("" + problem.pid)}
+                    className="w-full py-5 text-sm transition-all bg-opacity-70"
+                    variant={"outline"}
+                  >
+                    Review
+                  </Button>
+                </CardFooter>
               </div>
             </Card>
           ))}
@@ -59,4 +77,4 @@ const ProblemsReview = () => {
   );
 };
 
-export default ProblemsReview;
+export default ReviewProblems;

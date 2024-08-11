@@ -19,7 +19,7 @@ const ProblemDescription = () => {
   const [language, setLanguage] = useState("javascript");
   const [problem, setProblem] = useState();
   const languages = Object.entries(LANGUAGE_VERSIONS);
-  let { pid } = useParams();
+  const { pid } = useParams();
 
   const fetchProblem = async () => {
     const response = await fetch(

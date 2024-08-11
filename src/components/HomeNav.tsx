@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
 import SyncLoader from "react-spinners/SyncLoader";
 import { useState, CSSProperties } from "react";
-import { isLoggedIn } from "./lib/helper.ts";
+import { isLoggedIn, isUser } from "./lib/helper.ts";
 import { GOOGLE_API_LOGIN } from "./lib/constants.ts";
 import { useNavigate } from "react-router-dom";
 
@@ -70,13 +70,23 @@ const HomeNav = () => {
     <div className="absolute right-0 sm:relative  flex gap-3 items-center">
       {loggedIn ? (
         <div className="space-x-5">
-          <Button
-            onClick={() => {
-              navigate("/profile");
-            }}
-          >
-            Profile
-          </Button>
+          {isUser() ? (
+            <Button
+              onClick={() => {
+                navigate("/profile");
+              }}
+            >
+              Profile
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                navigate("/superadmin");
+              }}
+            >
+              Profile
+            </Button>
+          )}
           <Button
             onClick={() => {
               cookies.remove("token");

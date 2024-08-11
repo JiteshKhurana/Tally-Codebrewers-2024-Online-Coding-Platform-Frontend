@@ -6,7 +6,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-const Profile = () => {
+const Superadmin = () => {
   const navigate = useNavigate();
   const cookies = new Cookies(null, { path: "/" });
   const token = cookies.get("token");
@@ -52,14 +52,14 @@ const Profile = () => {
         </Button>
         <Button
           onClick={() => {
-            navigate("problemsinreview");
+            navigate("reviewproblems");
           }}
         >
-          Problems in Review
+          Review Problems
         </Button>
       </div>
     </div>
   );
 };
 
-export default Profile;
+export default Superadmin;

@@ -11,6 +11,10 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./components/Profile.tsx";
 import ProblemDescription from "./components/ProblemDescription.tsx";
 import UploadProblem from "./components/UploadProblem.tsx";
+import ProblemsReview from "./components/ProblemsReview.tsx";
+import ReviewProblems from "./components/ReviewProblems.tsx";
+import Superadmin from "./components/Superadmin.tsx";
+import ReviewProblemPage from "./components/ReviewProblemPage.tsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -26,12 +30,24 @@ const appRouter = createBrowserRouter([
         element: <Profile />,
       },
       {
+        path: "/superadmin",
+        element: <Superadmin />,
+      },
+      {
         path: "/profile/uploadproblem",
         element: <UploadProblem />,
       },
       {
         path: "/profile/problemsinreview",
-        element: <UploadProblem />,
+        element: <ProblemsReview />,
+      },
+      {
+        path: "/superadmin/reviewproblems",
+        element: <ReviewProblems />,
+      },
+      {
+        path: "/superadmin/reviewproblems/:pid",
+        element: <ReviewProblemPage />,
       },
       {
         path: "/codingplayground",
