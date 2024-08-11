@@ -13,6 +13,8 @@ export const LANGUAGE_VERSIONS = {
   php: "8.2.3",
 };
 
+export const GOOGLE_API_LOGIN = "https://www.googleapis.com/oauth2/v3/userinfo";
+
 export const CODE_SNIPPETS = {
   javascript: `function greet(name) {
     console.log("Hello, " + name + "!");

@@ -1,6 +1,6 @@
 import { Editor } from "@monaco-editor/react";
 import { useRef, useState } from "react";
-import { CODE_SNIPPETS, LANGUAGE_VERSIONS } from "../constants";
+import { CODE_SNIPPETS, LANGUAGE_VERSIONS } from "./lib/constants";
 import {
   Select,
   SelectContent,

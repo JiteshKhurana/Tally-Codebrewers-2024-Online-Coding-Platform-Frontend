@@ -1,10 +1,10 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import CodeEditor from "./components/CodeEditor";
 
 function App() {
   return (
     <>
-      <CodeEditor />
+      <Outlet />
     </>
   );
 }
