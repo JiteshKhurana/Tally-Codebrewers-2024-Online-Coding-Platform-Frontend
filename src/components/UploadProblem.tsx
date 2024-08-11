@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { toast } from "sonner";
 
 const UploadProblem = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -31,12 +32,13 @@ const UploadProblem = () => {
     await axios
       .post(
         "https://worldwide-coders-production.up.railway.app/problems/upload",
+        data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then((res) => {
-        console.log("Sucessfully Added!! 🥳");
+        toast("Sucessfully Added!! 🥳");
       })
       .catch((error) =>
         setError("root", {

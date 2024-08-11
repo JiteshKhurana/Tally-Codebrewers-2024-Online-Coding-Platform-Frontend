@@ -7,6 +7,8 @@
 - Tailwind CSS - UI
 - Shadcn - UI
 - React Router DOM - Routing
+- React Hook Form - Forms
+- Zod - Form Validation
 - Vite - Bundler
 - Axios - API calling
 - Piston API - Execution of code
@@ -14,6 +16,7 @@
 - Mux Router - Routing
 - MongoDB - Database
 - Google Oauth and JWT Go Package - Authentication
+- Railway.app - Backend Hosting
 
 ## Coding Playground
 
@@ -35,3 +38,11 @@
       showcase their skills.
 - [ ] Users can see real-time leaderboards.
 - [ ] Any user can conduct their own contest.
+
+## References
+
+- https://piston.readthedocs.io/en/latest/api-v2/ - For Execution of code
+- https://react-hook-form.com/get-started - Forms
+- https://go.dev/doc/ - Backend
+- https://react.dev/ - Frontend
+- https://www.mongodb.com/docs/ - Database

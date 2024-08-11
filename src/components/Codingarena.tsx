@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const Codingarena = () => {
   const [problems, setProblems] = useState<null | any[]>(null);
+
   const fetchProblems = async () => {
     const response = await fetch(
       "https://worldwide-coders-production.up.railway.app/problems/get"
@@ -39,7 +40,9 @@ const Codingarena = () => {
               <div className="bg-black bg-opacity-30 text-center">
                 <CardHeader>
                   <CardTitle>
-                    <p>{problem.description}</p>
+                    <p>
+                      {problem.description ? problem.title : "No description"}
+                    </p>
                     <p className="text-base text-gray-400">
                       {problem.author_id}
                     </p>

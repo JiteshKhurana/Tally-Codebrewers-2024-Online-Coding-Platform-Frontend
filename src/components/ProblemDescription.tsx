@@ -66,7 +66,7 @@ const ProblemDescription = () => {
         <ModeToggle />
       </div>
       <div className="grid grid-cols-2">
-        <div className="border border-white">
+        <div className="border border-gray-600">
           {problem && (
             <div className="col-span-8 space-y-2">
               <div className="flex gap-5 p-5 bg-white dark:bg-black shadow-xl rounded-lg">
@@ -106,7 +106,7 @@ const ProblemDescription = () => {
             </div>
           )}
         </div>
-        <div className="border border-white">
+        <div className="border border-gray-600">
           <Editor
             height="55vh"
             theme="vs-dark"

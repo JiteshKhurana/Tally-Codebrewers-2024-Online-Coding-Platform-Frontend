@@ -47,7 +47,7 @@ const CodeEditor = () => {
         </Select>
         <ModeToggle />
       </div>
-      <div className="grid grid-cols-2 border-t border-white">
+      <div className="grid grid-cols-2 border border-gray-600">
         <Editor
           height="85vh"
           theme="vs-dark"
