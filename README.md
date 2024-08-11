@@ -1,14 +1,14 @@
-# Thapar Events
+# Worldwide Coders
 
 ## TechStack
 
 - TypeScript
-- React.js
+- React.js - Frontend
 - Tailwind CSS - UI
 - Shadcn - UI
 - React Router DOM - Routing
 - Vite - Bundler
-- Axios
+- Axios - API calling
 - Piston API - Execution of code
 - Golang - Backend
 - Mux Router - Routing
