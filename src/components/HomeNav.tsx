@@ -7,6 +7,7 @@ import SyncLoader from "react-spinners/SyncLoader";
 import { useState, CSSProperties } from "react";
 import { isLoggedIn } from "./lib/helper.ts";
 import { GOOGLE_API_LOGIN } from "./lib/constants.ts";
+import { useNavigate } from "react-router-dom";
 
 const HomeNav = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -50,7 +51,7 @@ const HomeNav = () => {
     },
     onError: (errorResponse) => console.log(errorResponse.error),
   });
-
+  const navigate = useNavigate();
   if (isLoading)
     return (
       <SyncLoader
@@ -64,18 +65,28 @@ const HomeNav = () => {
       />
     );
   const loggedIn = isLoggedIn();
+
   return (
     <div className="absolute right-0 sm:relative  flex gap-3 items-center">
       {loggedIn ? (
-        <Button
-          onClick={() => {
-            cookies.remove("token");
-            localStorage.clear();
-            window.location.reload();
-          }}
-        >
-          Log out
-        </Button>
+        <div className="space-x-5">
+          <Button
+            onClick={() => {
+              navigate("/profile");
+            }}
+          >
+            Profile
+          </Button>
+          <Button
+            onClick={() => {
+              cookies.remove("token");
+              localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Log out
+          </Button>
+        </div>
       ) : (
         <Button onClick={() => googleLogin()}>Sign in</Button>
       )}

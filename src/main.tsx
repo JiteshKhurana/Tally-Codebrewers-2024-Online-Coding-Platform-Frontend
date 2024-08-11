@@ -10,6 +10,7 @@ import HomePage from "./components/Homepage.tsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./components/Profile.tsx";
 import ProblemDescription from "./components/ProblemDescription.tsx";
+import UploadProblem from "./components/UploadProblem.tsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -23,6 +24,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/profile/uploadproblem",
+        element: <UploadProblem />,
+      },
+      {
+        path: "/profile/problemsinreview",
+        element: <UploadProblem />,
       },
       {
         path: "/codingplayground",
