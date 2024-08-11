@@ -10,6 +10,10 @@
 - Vite - Bundler
 - Axios
 - Piston API - Execution of code
+- Golang - Backend
+- Mux Router - Routing
+- MongoDB - Database
+- Google Oauth and JWT Go Package - Authentication
 
 ## Coding Playground
 
@@ -20,9 +24,9 @@
 
 ## Coding Arena
 
-- [ ] A place where users can practice their coding skills by solving various problems
+- [x] A place where users can practice their coding skills by solving various problems
       available on the platform.
-- [ ] A user may upload their own coding problem along with its description, constraints
+- [x] A user may upload their own coding problem along with its description, constraints
       and test cases.
 
 ## Coding Battleground

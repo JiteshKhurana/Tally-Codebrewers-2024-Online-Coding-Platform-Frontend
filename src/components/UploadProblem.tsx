@@ -30,8 +30,7 @@ const UploadProblem = () => {
   const onSubmit: SubmitHandler<addProblemFormFields> = async (data) => {
     await axios
       .post(
-        "https://worldwide-coders-production.up.railway.app/" +
-          "problems/upload",
+        "https://worldwide-coders-production.up.railway.app/problems/upload",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

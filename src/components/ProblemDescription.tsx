@@ -10,8 +10,8 @@ import {
   SelectValue,
 } from "./ui/select";
 import { ModeToggle } from "./ui/mode-toggle";
-import Output from "./Output";
 import { useParams } from "react-router-dom";
+import ProblemEditor from "./ProblemEditor";
 
 const ProblemDescription = () => {
   const editorRef = useRef();
@@ -20,7 +20,7 @@ const ProblemDescription = () => {
   const [problem, setProblem] = useState();
   const languages = Object.entries(LANGUAGE_VERSIONS);
   let { pid } = useParams();
-  console.log(pid);
+
   const fetchProblem = async () => {
     const response = await fetch(
       `https://worldwide-coders-production.up.railway.app/problems/get?id=` +
@@ -29,15 +29,18 @@ const ProblemDescription = () => {
     const data = await response.json();
     setProblem(data);
   };
+
   useEffect(() => {
     fetchProblem();
   }, []);
+
   const onMount = (editor: any) => {
     editorRef.current = editor;
     editor.focus();
   };
+
   return (
-    <div className="">
+    <div>
       <h1 className="my-2 text-3xl text-center">Coding Arena</h1>
       <div className="flex justify-between my-2 mx-5">
         <Select
@@ -105,7 +108,7 @@ const ProblemDescription = () => {
         </div>
         <div className="border border-white">
           <Editor
-            height="50vh"
+            height="55vh"
             theme="vs-dark"
             defaultLanguage="javascript"
             value={value}
@@ -114,7 +117,11 @@ const ProblemDescription = () => {
             onMount={onMount}
             language={language}
           />
-          <Output editorRef={editorRef} language={language} />
+          <ProblemEditor
+            editorRef={editorRef}
+            language={language}
+            problem={problem}
+          />
         </div>
       </div>
     </div>

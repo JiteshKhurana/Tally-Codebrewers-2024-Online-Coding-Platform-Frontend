@@ -7,8 +7,8 @@ export const addProblemSchema = z.object({
   test_cases: z
     .array(
       z.object({
-        input: z.string().min(2, "Too Short").max(500, "Too Long").optional(),
-        output: z.string().min(2, "Too Short").max(500, "Too Long").optional(),
+        input: z.string().min(1, "Too Short").max(500, "Too Long").optional(),
+        output: z.string().min(1, "Too Short").max(500, "Too Long").optional(),
       })
     )
     .optional(),
