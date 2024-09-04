@@ -15,8 +15,7 @@ const Superadmin = () => {
   console.log(user);
   const fetchUser = async () => {
     const response = await axios.get(
-      "https://worldwide-coders-production.up.railway.app/users/get?email=" +
-        email,
+      import.meta.env.VITE_API_ENDPOINT + "users/get?email=" + email,
       {
         headers: { Authorization: `Bearer ${token}` },
       }

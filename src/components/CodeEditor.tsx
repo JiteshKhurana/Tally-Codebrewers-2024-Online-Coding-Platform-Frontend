@@ -17,7 +17,7 @@ const CodeEditor = () => {
   const [value, setValue] = useState<string>("");
   const [language, setLanguage] = useState("javascript");
   const languages = Object.entries(LANGUAGE_VERSIONS);
-  const onMount = (editor: any) => {
+  const onMount = (editor) => {
     editorRef.current = editor;
     editor.focus();
   };

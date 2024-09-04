@@ -5,24 +5,33 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import { toast } from "sonner";
 
+interface ProblemInterface {
+  title: string;
+  author_id: string;
+  description: string;
+  constraints: string;
+  test_cases?: {
+    input?: string;
+    output?: string;
+  }[];
+}
+
 const ReviewProblemPage = () => {
   const { pid } = useParams();
-  const [problem, setProblem] = useState();
+  const [problem, setProblem] = useState<ProblemInterface>();
   const cookies = new Cookies(null, { path: "/" });
   const token = cookies.get("token");
   const navigate = useNavigate();
   const fetchProblem = async () => {
     const response = await axios.get(
-      `https://worldwide-coders-production.up.railway.app/problems/get?id=` +
-        pid
+      import.meta.env.VITE_API_ENDPOINT + `problems/get?id=` + pid
     );
     const data = response.data;
     setProblem(data);
   };
   const approveProblem = async () => {
     await axios.post(
-      `https://worldwide-coders-production.up.railway.app/problems/update/` +
-        pid,
+      import.meta.env.VITE_API_ENDPOINT + `problems/update/` + pid,
       { visibility: true },
       {
         headers: { Authorization: `Bearer ${token}` },

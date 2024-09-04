@@ -26,15 +26,12 @@ const HomeNav = () => {
         headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
       });
       axios
-        .post(
-          "https://worldwide-coders-production.up.railway.app/" + "create",
-          {
-            email: userInfo.data.email,
-            name: userInfo.data.name,
-            image: userInfo.data.picture,
-            token: tokenResponse.access_token,
-          }
-        )
+        .post(import.meta.env.VITE_API_ENDPOINT + "create", {
+          email: userInfo.data.email,
+          name: userInfo.data.name,
+          image: userInfo.data.picture,
+          token: tokenResponse.access_token,
+        })
         .then((resp) => {
           const decoded = jwtDecode(resp.data.token);
           cookies.set("token", resp.data.token, {

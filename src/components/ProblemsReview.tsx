@@ -4,14 +4,26 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
+interface ProblemInterface {
+  title: string;
+  author_id: string;
+  pid: string;
+  description: string;
+  constraints: string;
+  test_cases?: {
+    input?: string;
+    output?: string;
+  }[];
+}
+
 const ProblemsReview = () => {
-  const [problems, setProblems] = useState<null | any[]>(null);
+  const [problems, setProblems] = useState<ProblemInterface[]>(null);
   const cookies = new Cookies(null, { path: "/" });
   const token = cookies.get("token");
 
   const fetchProblems = async () => {
     const response = await axios.get(
-      "https://worldwide-coders-production.up.railway.app/problems/getnotvisible",
+      import.meta.env.VITE_API_ENDPOINT + "problems/getnotvisible",
       {
         headers: { Authorization: `Bearer ${token}` },
       }

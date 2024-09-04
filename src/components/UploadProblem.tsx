@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { toast } from "sonner";
 
 const UploadProblem = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -29,14 +30,10 @@ const UploadProblem = () => {
 
   const onSubmit: SubmitHandler<addProblemFormFields> = async (data) => {
     await axios
-      .post(
-        "https://worldwide-coders-production.up.railway.app/problems/upload",
-        data,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((res) => {
+      .post(import.meta.env.VITE_API_ENDPOINT + "problems/upload", data, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
         toast("Sucessfully Added!! 🥳");
       })
       .catch((error) =>

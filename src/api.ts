@@ -1,13 +1,13 @@
 import axios from "axios";
-import { LANGUAGE_VERSIONS } from "./components/lib/constants";
+import { LANGUAGE_VERSIONS, PISTON_API } from "./components/lib/constants";
 
 const API = axios.create({
-  baseURL: "https://emkc.org/api/v2/piston",
+  baseURL: PISTON_API,
 });
 
 export const executeAPI = async (
   language: string,
-  sourceCode: any,
+  sourceCode: string,
   input: string
 ) => {
   const response = await API.post("/execute", {

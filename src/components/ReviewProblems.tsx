@@ -12,14 +12,26 @@ import axios from "axios";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
 
+interface ProblemInterface {
+  title: string;
+  author_id: string;
+  pid: string;
+  description: string;
+  constraints: string;
+  test_cases?: {
+    input?: string;
+    output?: string;
+  }[];
+}
+
 const ReviewProblems = () => {
   const navigate = useNavigate();
-  const [problems, setProblems] = useState<null | any[]>(null);
+  const [problems, setProblems] = useState<ProblemInterface[]>(null);
   const cookies = new Cookies(null, { path: "/" });
   const token = cookies.get("token");
   const fetchProblems = async () => {
     const response = await axios.get(
-      "https://worldwide-coders-production.up.railway.app/problems/getnotvisible",
+      import.meta.env.VITE_API_ENDPOINT + "problems/getnotvisible",
       {
         headers: { Authorization: `Bearer ${token}` },
       }

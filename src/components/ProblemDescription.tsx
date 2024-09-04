@@ -12,19 +12,27 @@ import {
 import { ModeToggle } from "./ui/mode-toggle";
 import { useParams } from "react-router-dom";
 import ProblemEditor from "./ProblemEditor";
-
+interface ProblemInterface {
+  title: string;
+  author_id: string;
+  description: string;
+  constraints: string;
+  test_cases?: {
+    input?: string;
+    output?: string;
+  }[];
+}
 const ProblemDescription = () => {
   const editorRef = useRef();
   const [value, setValue] = useState<string>("");
   const [language, setLanguage] = useState("javascript");
-  const [problem, setProblem] = useState();
+  const [problem, setProblem] = useState<ProblemInterface>();
   const languages = Object.entries(LANGUAGE_VERSIONS);
   const { pid } = useParams();
 
   const fetchProblem = async () => {
     const response = await fetch(
-      `https://worldwide-coders-production.up.railway.app/problems/get?id=` +
-        pid
+      import.meta.env.VITE_API_ENDPOINT + "problems/get?id=" + pid
     );
     const data = await response.json();
     setProblem(data);
@@ -34,7 +42,7 @@ const ProblemDescription = () => {
     fetchProblem();
   }, []);
 
-  const onMount = (editor: any) => {
+  const onMount = (editor) => {
     editorRef.current = editor;
     editor.focus();
   };

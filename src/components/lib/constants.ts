@@ -15,6 +15,8 @@ export const LANGUAGE_VERSIONS = {
 
 export const GOOGLE_API_LOGIN = "https://www.googleapis.com/oauth2/v3/userinfo";
 
+export const PISTON_API = "https://emkc.org/api/v2/piston";
+
 export const CODE_SNIPPETS = {
   javascript: `function greet(name) {
     console.log("Hello, " + name + "!");

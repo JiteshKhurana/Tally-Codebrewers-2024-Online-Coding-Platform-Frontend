@@ -11,11 +11,11 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const Codingarena = () => {
-  const [problems, setProblems] = useState<null | any[]>(null);
+  const [problems, setProblems] = useState(null);
 
   const fetchProblems = async () => {
     const response = await fetch(
-      "https://worldwide-coders-production.up.railway.app/problems/get"
+      import.meta.env.VITE_API_ENDPOINT + "problems/get"
     );
     const data = await response.json();
     setProblems(data);

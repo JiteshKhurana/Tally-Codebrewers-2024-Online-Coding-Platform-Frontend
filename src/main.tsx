@@ -5,7 +5,6 @@ import Page404 from "./components/Page404.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CodeEditor from "./components/CodeEditor.tsx";
 import Codingarena from "./components/Codingarena.tsx";
-import Codingbattleground from "./components/Codingbattleground.tsx";
 import HomePage from "./components/Homepage.tsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./components/Profile.tsx";
@@ -15,7 +14,6 @@ import ProblemsReview from "./components/ProblemsReview.tsx";
 import ReviewProblems from "./components/ReviewProblems.tsx";
 import Superadmin from "./components/Superadmin.tsx";
 import ReviewProblemPage from "./components/ReviewProblemPage.tsx";
-import CreateContest from "./components/contest/CreateContest.tsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -36,6 +34,10 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/profile/uploadproblem",
+        element: <UploadProblem />,
+      },
+      {
+        path: "/superadmin/uploadproblem",
         element: <UploadProblem />,
       },
       {
@@ -61,14 +63,6 @@ const appRouter = createBrowserRouter([
       {
         path: "/codingarena/problems/:pid",
         element: <ProblemDescription />,
-      },
-      {
-        path: "/codingbattleground",
-        element: <Codingbattleground />,
-      },
-      {
-        path: "/codingbattleground/createcontest",
-        element: <CreateContest />,
       },
       {
         path: "*",

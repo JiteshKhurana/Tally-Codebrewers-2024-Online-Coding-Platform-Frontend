@@ -18,7 +18,7 @@ const HomePage = () => {
       </div>
       <h1 className="text-5xl text-center my-20">Worldwide Coders🧑🏻‍💻</h1>
       <div className="flex flex-row mx-5 space-x-5 my-20">
-        <Card className="w-1/3">
+        <Card className="w-1/2 text-center">
           <CardHeader>
             <CardTitle>Coding Playground</CardTitle>
             <CardDescription>
@@ -35,7 +35,7 @@ const HomePage = () => {
             </Button>
           </CardContent>
         </Card>
-        <Card className="w-1/3">
+        <Card className="w-1/2 text-center">
           <CardHeader>
             <CardTitle>Coding Arena</CardTitle>
             <CardDescription>
@@ -46,24 +46,6 @@ const HomePage = () => {
           <CardContent>
             <Button
               onClick={() => navigate("/codingarena")}
-              size="lg"
-              variant="secondary"
-            >
-              Let's Go
-            </Button>
-          </CardContent>
-        </Card>
-        <Card className="w-1/3">
-          <CardHeader>
-            <CardTitle>Coding Battleground</CardTitle>
-            <CardDescription>
-              A place where users can compete in ongoing contests hosted on the
-              platform to showcase their skills
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button
-              onClick={() => navigate("/codingbattleground")}
               size="lg"
               variant="secondary"
             >
